@@ -10,7 +10,7 @@ use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Log;
 use Carbon\Carbon;
 
-class autoSalaryCount extends Command
+class AutoSalaryCount extends Command
 {
     protected $signature = 'command:autosalarycount';
     protected $description = 'Calculate and store employee salaries based on leaves and gross salary';
