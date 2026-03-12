@@ -9,7 +9,6 @@
         "aws/aws-sdk-php": "^3.306",
         "doctrine/dbal": "^4.4",
         "guzzlehttp/guzzle": "^7.8",
-        "laravel/ai": "^0.1.2",
         "laravel/framework": "^12.0",
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.9",
