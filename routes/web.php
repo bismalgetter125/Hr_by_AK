@@ -68,7 +68,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/employees', [EmployeeController::class, 'index'])->name('employees.index');
     Route::get('employees/{employee}', [EmployeeController::class, 'show'])->name('employees.show');
     Route::get('myprofile/{employee}', [EmployeeController::class, 'show'])->name('myprofile.show');
-    Route::post('/register', 'Auth\RegisterController@register')->name('register');
+    #Route::post('/register', 'Auth\RegisterController@register')->name('register');
     // Route::post('/register_ak', [RegisterController::class, 'register'])->name('cust_register');
     // Route::get('/register_ak', [RegisterController::class, 'showRegistrationForm'])->name('register.form');
     Route::delete('/employees/{employee}', [EmployeeController::class, 'destroy'])->name('employees.destroy');
