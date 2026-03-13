@@ -68,7 +68,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/employees', [EmployeeController::class, 'index'])->name('employees.index');
     Route::get('employees/{employee}', [EmployeeController::class, 'show'])->name('employees.show');
     Route::get('myprofile/{employee}', [EmployeeController::class, 'show'])->name('myprofile.show');
-    Route::post('/register', [RegisterController::class, 'register'])->name('cust_register');
+    Route::post('/register_ak', [RegisterController::class, 'register'])->name('cust_register');
     Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register.form');
     Route::delete('/employees/{employee}', [EmployeeController::class, 'destroy'])->name('employees.destroy');
     Route::put('/employee/{id?}', [EmployeeController::class, 'update'])->name('employee.update');
