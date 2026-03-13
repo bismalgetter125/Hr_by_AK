@@ -10,7 +10,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        // Add 'qa' as a valid status value
+        // Skip this migration for SQLite
+        if (DB::getDriverName() === 'sqlite') {
+            return;
+        }
+
+        // MySQL only
         DB::statement("ALTER TABLE tasks MODIFY COLUMN status ENUM('to_do', 'in_progress', 'qa', 'completed') DEFAULT 'to_do'");
     }
 
@@ -19,8 +24,10 @@ return new class extends Migration
      */
     public function down(): void
     {
-        // Revert back to original enum without 'qa'
+        if (DB::getDriverName() === 'sqlite') {
+            return;
+        }
+
         DB::statement("ALTER TABLE tasks MODIFY COLUMN status ENUM('to_do', 'in_progress', 'completed') DEFAULT 'to_do'");
     }
 };
-
