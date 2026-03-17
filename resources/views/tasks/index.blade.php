@@ -341,23 +341,31 @@
         <div class="d-flex justify-content-between shadow-sm align-items-center bg-success px-3 py-2 rounded-top">
             <h4 class="text-white fw-bolder m-0">QA Passed</h4>
         </div>
-<button
-            class="btn btn-secondary btn-sm trackHistoryBtn"
-            data-id="{{ $task->id }}"
-            data-bs-toggle="modal"
-            data-bs-target="#historyModal">
-            <i class="bi bi-clock-history"></i>
-        </button>
+
         <div class="kanban-list" id="qa_passed">
             @foreach ($tasks['qa_passed'] ?? [] as $task)
-            <div class="card mb-3 kanban-item" data-id="{{ $task->id }}" data-user="{{ $task->user_id }}"
-                data-department="{{ strtolower($task->user->employee->department) }}" draggable="{{ auth()->id() == $task->user_id ? 'true' : 'false' }}">
+            <div class="card mb-3 kanban-item"
+                data-id="{{ $task->id }}"
+                data-user="{{ $task->user_id }}"
+                data-department="{{ strtolower($task->user->employee->department) }}"
+                draggable="{{ auth()->id() == $task->user_id ? 'true' : 'false' }}">
+
                 <div class="card-body">
-                    <h5 class="card-title">{{ $task->title }}
+                    <h5 class="card-title">
+                        {{ $task->title }}
                         <span class="badge text-white {{ $task->priority == 'low' ? 'bg-success' : ($task->priority == 'medium' ? 'bg-warning' : 'bg-danger') }}">
                             {{ ucfirst($task->priority) }}
                         </span>
                     </h5>
+
+                    <!-- ✅ FIXED: Button inside loop -->
+                    <button
+                        class="btn btn-secondary btn-sm trackHistoryBtn"
+                        data-id="{{ $task->id }}"
+                        data-bs-toggle="modal"
+                        data-bs-target="#historyModal">
+                        <i class="bi bi-clock-history"></i>
+                    </button>
                 </div>
             </div>
             @endforeach
@@ -371,23 +379,31 @@
         <div class="d-flex justify-content-between shadow-sm align-items-center bg-danger px-3 py-2 rounded-top">
             <h4 class="text-white fw-bolder m-0">QA Failed</h4>
         </div>
-<button
-            class="btn btn-secondary btn-sm trackHistoryBtn"
-            data-id="{{ $task->id }}"
-            data-bs-toggle="modal"
-            data-bs-target="#historyModal">
-            <i class="bi bi-clock-history"></i> 
-        </button>
+
         <div class="kanban-list" id="qa_failed">
             @foreach ($tasks['qa_failed'] ?? [] as $task)
-            <div class="card mb-3 kanban-item" data-id="{{ $task->id }}" data-user="{{ $task->user_id }}"
-                data-department="{{ strtolower($task->user->employee->department) }}" draggable="{{ auth()->id() == $task->user_id ? 'true' : 'false' }}">
+            <div class="card mb-3 kanban-item"
+                data-id="{{ $task->id }}"
+                data-user="{{ $task->user_id }}"
+                data-department="{{ strtolower($task->user->employee->department) }}"
+                draggable="{{ auth()->id() == $task->user_id ? 'true' : 'false' }}">
+
                 <div class="card-body">
-                    <h5 class="card-title">{{ $task->title }}
+                    <h5 class="card-title">
+                        {{ $task->title }}
                         <span class="badge text-white {{ $task->priority == 'low' ? 'bg-success' : ($task->priority == 'medium' ? 'bg-warning' : 'bg-danger') }}">
                             {{ ucfirst($task->priority) }}
                         </span>
                     </h5>
+
+                    <!-- ✅ FIXED -->
+                    <button
+                        class="btn btn-secondary btn-sm trackHistoryBtn"
+                        data-id="{{ $task->id }}"
+                        data-bs-toggle="modal"
+                        data-bs-target="#historyModal">
+                        <i class="bi bi-clock-history"></i>
+                    </button>
                 </div>
             </div>
             @endforeach
