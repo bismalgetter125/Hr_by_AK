@@ -13,11 +13,11 @@ class TotalLeaves extends Migration
      */
     public function up()
     {
-        Schema::create('Total_Leaves', function (Blueprint $table) {
+        Schema::create('total_leaves', function (Blueprint $table) {
             $table->id();
-            $table->string('Name');
-            $table->integer('Count');
-            $table->string('Status');
+            $table->string('name');
+            $table->integer('count');
+            $table->string('status');
             $table->timestamps();
         });
     }
@@ -28,7 +28,7 @@ class TotalLeaves extends Migration
      * @return void
      */
     public function down()
-    {
-        Schema::dropIfExists('Total_Leaves');
+    { 
+        Schema::dropIfExists('total_leaves');
     }
 }
