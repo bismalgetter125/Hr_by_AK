@@ -486,3 +486,8 @@ Route::get('/my-tasks', [TaskController::class, 'myTasks'])->name('my.tasks');
 
 Route::get('/tasks/{task}/comments', [TaskController::class, 'getComments']);
 Route::post('/tasks/{task}/comments', [TaskController::class, 'addComment']);
+
+Route::put('/comments/{id}', [TaskController::class, 'updateComment']);
+Route::delete('/comments/{id}', [TaskController::class, 'deleteComment']);
+
+Route::get('/comments/{comment}/history', [TaskController::class, 'commentHistory']);
